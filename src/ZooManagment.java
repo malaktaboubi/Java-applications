@@ -1,4 +1,7 @@
+import java.util.Arrays;
 import java.util.Scanner;
+
+
 public class ZooManagment {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -21,8 +24,18 @@ public class ZooManagment {
                 scanner.next();
             }
         }
-
+        scanner.nextLine();
         System.out.println(zooName + " comporte " + nbrCages + " cages");
+        System.out.print("Entrez la ville du zoo : ");
+        String city = scanner.nextLine();
+
+        Zoo myZoo = new Zoo(zooName, city, nbrCages);
+        Animal lion = new Animal("Felidae", "Lion", 5, true);
+
+        myZoo.displayZoo();
+        System.out.println(myZoo);
+        System.out.println(lion);
+
         scanner.close();
     }
 }
