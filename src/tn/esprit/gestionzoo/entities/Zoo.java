@@ -1,18 +1,46 @@
+package tn.esprit.gestionzoo.entities;
+
 public class Zoo {
     private static final int MAX_ANIMALS = 25;
     private Animal[] animals;
     private String name;
-    public String getName() { return name; }
     private String city;
     private int nbrCages;
     private int animalCount;
 
     public Zoo(String name, String city) {
-        this.name = name;
+        setName(name); // Use setter for validation
         this.city = city;
         this.nbrCages = MAX_ANIMALS;
         this.animals = new Animal[MAX_ANIMALS];
         this.animalCount = 0;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("nom du zoo ne peut pas etre vide");
+        }
+        this.name = name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getNbrCages() {
+        return nbrCages;
+    }
+
+    public void setNbrCages(int nbrCages) {
+        this.nbrCages = nbrCages;
     }
 
     public boolean addAnimal(Animal animal) {
@@ -60,11 +88,11 @@ public class Zoo {
     }
 
     public void displayZoo() {
-        System.out.println("Zoo [name=" + name + ", city=" + city + ", nbrCages=" + nbrCages + "]");
+        System.out.println("tn.esprit.gestionzoo.entities.Zoo [name=" + name + ", city=" + city + ", nbrCages=" + nbrCages + "]");
     }
 
     @Override
     public String toString() {
-        return "Zoo [name=" + name + ", city=" + city + ", nbrCages=" + nbrCages + "]";
+        return "tn.esprit.gestionzoo.entities.Zoo [name=" + name + ", city=" + city + ", nbrCages=" + nbrCages + "]";
     }
 }
