@@ -35,7 +35,7 @@ public class ZooManagment {
 
         Zoo myZoo = new Zoo(zooName, city);
 
-        // Add animals and perform operations
+
         Animal lion = new Animal("Felidae", "Lion", 5, true);
         Animal tiger = new Animal("Felidae", "Tiger", 4, true);
         Animal hedgehog = new Animal("Erinaceidae", "Hedgehog", 2, true);

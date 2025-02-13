@@ -9,7 +9,7 @@ public class Zoo {
     private int animalCount;
 
     public Zoo(String name, String city) {
-        setName(name); // Use setter for validation
+        setName(name);
         this.city = city;
         this.nbrCages = MAX_ANIMALS;
         this.animals = new Animal[MAX_ANIMALS];
