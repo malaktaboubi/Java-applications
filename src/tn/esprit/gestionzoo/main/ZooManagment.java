@@ -1,7 +1,7 @@
 package tn.esprit.gestionzoo.main;
 
-import tn.esprit.gestionzoo.entities.Animal;
-import tn.esprit.gestionzoo.entities.Zoo;
+import tn.esprit.gestionzoo.entities.*;
+
 import java.util.Scanner;
 
 public class ZooManagment {
@@ -40,6 +40,11 @@ public class ZooManagment {
         Animal tiger = new Animal("Felidae", "Tiger", 4, true);
         Animal hedgehog = new Animal("Erinaceidae", "Hedgehog", 2, true);
 
+        Aquatic aquaticAnimal = new Aquatic();
+        Terrestrial terrestrialAnimal = new Terrestrial();
+        Dolphin dolphin = new Dolphin();
+        Penguin penguin = new Penguin();
+
         System.out.println("Ajout Lion: " + myZoo.addAnimal(lion));
         System.out.println("Ajout Tiger: " + myZoo.addAnimal(tiger));
         System.out.println("Ajout Lion (test): " + myZoo.addAnimal(lion));
@@ -60,6 +65,21 @@ public class ZooManagment {
         zoo2.addAnimal(new Animal("Giraffidae", "Giraffe", 7, true));
         Zoo biggerZoo = Zoo.comparerZoo(myZoo, zoo2);
         System.out.println("Le zoo avec le plus d'animaux est : " + biggerZoo.getName());
+
+
+        Dolphin dolphin1 = new Dolphin("Delphinidae", "amine", 8, true, "Ocean", 25.5f);
+        Penguin peng1 = new Penguin("Spheniscidae", "melek", 5, false, "Antarctic", 10.2f);
+
+        System.out.println(aquaticAnimal);
+        System.out.println(terrestrialAnimal);
+        System.out.println(dolphin);
+        System.out.println(penguin);
+        System.out.println(dolphin1);
+        System.out.println(peng1);
+
+        aquaticAnimal.swim();
+        dolphin.swim();
+        penguin.swim();
 
         scanner.close();
     }
