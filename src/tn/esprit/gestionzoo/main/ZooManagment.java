@@ -36,14 +36,12 @@ public class ZooManagment {
         Zoo myZoo = new Zoo(zooName, city);
 
 
-        Animal lion = new Animal("Felidae", "Lion", 5, true);
-        Animal tiger = new Animal("Felidae", "Tiger", 4, true);
-        Animal hedgehog = new Animal("Erinaceidae", "Hedgehog", 2, true);
+        Animal lion = new Animal("Felidae", "simba", 5, true);
+        Animal tiger = new Animal("Felidae", "Tigy", 4, true);
+        Animal hedgehog = new Animal("Erinaceidae", "sonic", 2, true);
 
-        Aquatic aquaticAnimal = new Aquatic();
-        Terrestrial terrestrialAnimal = new Terrestrial();
-        Dolphin dolphin = new Dolphin();
-        Penguin penguin = new Penguin();
+
+        Terrestrial horse = new Terrestrial("equine", "lilli", 9, true, 4);
 
         System.out.println("Ajout Lion: " + myZoo.addAnimal(lion));
         System.out.println("Ajout Tiger: " + myZoo.addAnimal(tiger));
@@ -59,7 +57,7 @@ public class ZooManagment {
         System.out.println("Ajout elephant: " + myZoo.addAnimal(elephant));
         myZoo.displayAnimals();
 
-        myZoo.displayZoo();
+        //myZoo.displayZoo();
 
         Zoo zoo2 = new Zoo("Wild Park", "Paris");
         zoo2.addAnimal(new Animal("Giraffidae", "Giraffe", 7, true));
@@ -69,17 +67,19 @@ public class ZooManagment {
 
         Dolphin dolphin1 = new Dolphin("Delphinidae", "amine", 8, true, "Ocean", 25.5f);
         Penguin peng1 = new Penguin("Spheniscidae", "melek", 5, false, "Antarctic", 10.2f);
+        Penguin peng2 = new Penguin("Spheniscidae", "Pingu", 5, false, "Antarctic", 10.2f);
 
-        System.out.println(aquaticAnimal);
-        System.out.println(terrestrialAnimal);
-        System.out.println(dolphin);
-        System.out.println(penguin);
+        myZoo.addAquaticAnimal(dolphin1);
+        myZoo.addAquaticAnimal(peng1);
+        myZoo.addAquaticAnimal(peng2);
+
+        System.out.println(tiger);
         System.out.println(dolphin1);
         System.out.println(peng1);
+        System.out.println(peng2);
 
-        aquaticAnimal.swim();
-        dolphin.swim();
-        penguin.swim();
+        myZoo.makeAllSwim();
+        myZoo.displayNumberOfAquaticsByType();
 
         scanner.close();
     }
