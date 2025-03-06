@@ -1,5 +1,7 @@
 package tn.esprit.gestionzoo.entities;
 
+import tn.esprit.gestionzoo.Exceptions.InvalidAgeException;
+
 public class Animal {
     private String family;
     private String name;
@@ -28,8 +30,7 @@ public class Animal {
         if (age >= 0) {
             this.age = age;
         } else {
-            System.out.println("L'âge ne peut pas être négatif !");
-            this.age = 0;
+            throw new InvalidAgeException("L'âge d'un animal ne peut pas être négatif.");
         }
     }
 

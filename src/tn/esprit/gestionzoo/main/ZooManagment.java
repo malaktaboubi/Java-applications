@@ -1,5 +1,6 @@
 package tn.esprit.gestionzoo.main;
 
+import tn.esprit.gestionzoo.Exceptions.ZooFullException;
 import tn.esprit.gestionzoo.entities.*;
 
 import java.util.Scanner;
@@ -40,12 +41,18 @@ public class ZooManagment {
         Animal tiger = new Animal("Felidae", "Tigy", 4, true);
         Animal hedgehog = new Animal("Erinaceidae", "sonic", 2, true);
 
+        Animal elephant = new Animal("Proboscidea", "fatboy", 15, true);
 
         Terrestrial horse = new Terrestrial("equine", "lilli", 9, true, 4);
+        try {
+            myZoo.addAnimal(lion);
+            myZoo.addAnimal(tiger);
+            myZoo.addAnimal(lion);
+            myZoo.addAnimal(elephant);
+        } catch (ZooFullException e) {
+            System.out.println(e.getMessage());
+        }
 
-        System.out.println("Ajout Lion: " + myZoo.addAnimal(lion));
-        System.out.println("Ajout Tiger: " + myZoo.addAnimal(tiger));
-        System.out.println("Ajout Lion (test): " + myZoo.addAnimal(lion));
 
         myZoo.displayAnimals();
 
@@ -53,14 +60,17 @@ public class ZooManagment {
         System.out.println("Recherche Hedgehog: " + myZoo.searchAnimal(hedgehog));
 
         System.out.println("deleting Tiger: " + myZoo.removeAnimal(tiger));
-        Animal elephant = new Animal("Proboscidea", "Elephant", 15, true);
-        System.out.println("Ajout elephant: " + myZoo.addAnimal(elephant));
+
         myZoo.displayAnimals();
 
         //myZoo.displayZoo();
 
         Zoo zoo2 = new Zoo("Wild Park", "Paris");
+
         zoo2.addAnimal(new Animal("Giraffidae", "Giraffe", 7, true));
+
+
+
         Zoo biggerZoo = Zoo.comparerZoo(myZoo, zoo2);
         System.out.println("Le zoo avec le plus d'animaux est : " + biggerZoo.getName());
 
