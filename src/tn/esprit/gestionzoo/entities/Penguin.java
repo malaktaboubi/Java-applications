@@ -26,9 +26,5 @@ public class Penguin extends Aquatic {
         return super.toString() + ", Swimming Depth=" + swimmingDepth + " m";
     }
 
-    /*@Override
-    public void eatmeat(Object MEAT) {
-
-    }*/
 }
 

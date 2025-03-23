@@ -17,6 +17,6 @@ public class Terrestrial extends Animal implements Omnivore <Food> {
 
     @Override
     public void eatplantandmeet(Food food){
-        System.out.println("this terrestrial is eating " +food);
+        System.out.println("this terrestrial "+ getName() +" is eating " +food);
     };
 }

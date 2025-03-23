@@ -36,7 +36,7 @@ public abstract class Aquatic extends Animal implements Carnivore<Food>  {
 
     @Override
     public void eatmeat(Food food) {
-        System.out.println("this Aquatic is eating "+food);
+        System.out.println("this Aquatic "+ getName() +" is eating "+food);
     }
 }
 
