@@ -22,4 +22,8 @@ public class Dolphin extends Aquatic {
     public String toString() {
         return super.toString() + ", Swimming Speed=" + swimmingSpeed + " m/s";
     }
+
+    /*@Override
+    public void eatmeat(Object MEAT) {
+    }*/
 }

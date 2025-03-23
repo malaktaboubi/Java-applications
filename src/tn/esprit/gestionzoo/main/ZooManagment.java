@@ -1,7 +1,7 @@
 package tn.esprit.gestionzoo.main;
-
 import tn.esprit.gestionzoo.Exceptions.ZooFullException;
 import tn.esprit.gestionzoo.entities.*;
+import tn.esprit.gestionzoo.Interfaces.*;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class ZooManagment {
         System.out.print("Entrez le nom du zoo : ");
         String zooName = scanner.nextLine();
 
-        int nbrCages = 0;
+        int nbrCages;
         while (true) {
             System.out.print("nombre de cages : ");
             if (scanner.hasNextInt()) {
@@ -40,10 +40,9 @@ public class ZooManagment {
         Animal lion = new Animal("Felidae", "simba", 5, true);
         Animal tiger = new Animal("Felidae", "Tigy", 4, true);
         Animal hedgehog = new Animal("Erinaceidae", "sonic", 2, true);
-
         Animal elephant = new Animal("Proboscidea", "fatboy", 15, true);
-
         Terrestrial horse = new Terrestrial("equine", "lilli", 9, true, 4);
+
         try {
             myZoo.addAnimal(lion);
             myZoo.addAnimal(tiger);
@@ -78,6 +77,13 @@ public class ZooManagment {
         Dolphin dolphin1 = new Dolphin("Delphinidae", "amine", 8, true, "Ocean", 25.5f);
         Penguin peng1 = new Penguin("Spheniscidae", "melek", 5, false, "Antarctic", 10.2f);
         Penguin peng2 = new Penguin("Spheniscidae", "Pingu", 5, false, "Antarctic", 10.2f);
+        Aquatic fish= new Aquatic("Pomacentridae", "nemo", 1, false, "Ocean") {
+            @Override
+            public void swim() {
+                System.out.println("this fish is swimming");
+            }
+        };
+
 
         myZoo.addAquaticAnimal(dolphin1);
         myZoo.addAquaticAnimal(peng1);
@@ -90,6 +96,10 @@ public class ZooManagment {
 
         myZoo.makeAllSwim();
         myZoo.displayNumberOfAquaticsByType();
+
+        peng2.eatmeat(Food.MEAT);
+        fish.eatmeat(Food.MEAT);
+        horse.eatplantandmeet(Food.PLANT);
 
         scanner.close();
     }
